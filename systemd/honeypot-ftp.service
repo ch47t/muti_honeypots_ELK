@@ -1,0 +1,18 @@
+[Unit]
+Description=Honeypot FTP (pyftpdlib)
+After=network.target
+
+[Service]
+Type=simple
+User=kali
+Group=kali
+WorkingDirectory=/home/kali/honeypots/custom
+ExecStart=/home/kali/honeypots/venv/bin/python /home/kali/honeypots/custom/ftp_honeypot.py
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
